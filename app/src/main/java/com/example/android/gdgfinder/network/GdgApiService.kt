@@ -12,10 +12,10 @@ import retrofit2.http.GET
 private const val BASE_URL = "https://gdg.community.dev/api/"
 
 interface GdgApiService {
-    @GET("chapter_region")
-    fun getChapters():
+    @GET("chapter_region?chapters=true")
+    fun getChaptersAsync():
     // The Coroutine Call Adapter allows us to return a Deferred, a Job with a result
-            Deferred<GdgResponse>
+            Deferred<List<GdgResponse>>
 }
 
 private val moshi = Moshi.Builder()
